@@ -10,6 +10,7 @@ import { Cycles } from './components/Cycles';
 import { DefaultButton } from './components/DefaultButton';
 import { Footer } from './components/Footer';
 import { PlayCircleIcon } from 'lucide-react';
+// import { useState } from 'react';
 
 function App() {
   return (
