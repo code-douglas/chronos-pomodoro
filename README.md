@@ -1,69 +1,92 @@
-# React + TypeScript + Vite
+# ⏳ Chronos App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+- Aplicação web de **Pomodoro Timer** desenvolvida em **React + TypeScript +
+  Vite**. O objetivo é auxiliar na produtividade utilizando a técnica Pomodoro,
+  permitindo foco em tarefas com ciclos de trabalho e descanso.
 
-Currently, two official plugins are available:
+## 🚀 Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- ✅ Timer de foco, pausas curtas e longas (**personalizáveis pelo usuário**)
+- ✅ **Histórico de pomodoros** realizados
+- ✅ **Contabilização de ciclos** (quantidade de sessões concluídas)
+- ✅ **Tema claro/escuro** com alternância rápida
+- ✅ Controles de **Iniciar / Pausar / Resetar**
+- ✅ Interface responsiva e minimalista
+- ✅ Desenvolvido com **React Hooks** e **TypeScript**
 
-## Expanding the ESLint configuration
+## 📂 Estrutura de Pastas
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+chronos-pomodoro/
+├── public/
+├── src/
+│ ├── assets/
+│ ├── components/
+│ ├── hooks/
+│ ├── models/
+│ ├── pages/
+│ ├── styles/
+│ ├── templates/
+│ ├── App.tsx
+│ └── main.tsx
+├── .eslintrc.cjs
+├── .prettierrc.json
+├── index.html
+├── package.json
+├── tsconfig.json
+└── vite.config.ts
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Pré-requisitos
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- [Node.js](https://nodejs.org/) **>= 18**
+- [npm](https://www.npmjs.com/) ou [yarn](https://yarnpkg.com/)
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📦 Instalação e execução
+
+Copie e cole os comandos abaixo no terminal:
+
+```bash
+# 1. Clonar o repositório
+git clone https://github.com/code-douglas/chronos-pomodoro.git
+
+# 2. Acessar a pasta
+cd chronos-pomodoro
+
+# 3. Instalar dependências
+npm install
+# ou
+yarn install
+
+# 4. Rodar em ambiente de desenvolvimento
+npm run dev
+# ou
+yarn dev
+
+Após rodar o comando npm run dev, a aplicação estará disponível em:
+👉 http://localhost:5173/
+
+# 5. (Opcional) Build para produção
+npm run build
 ```
+
+## Screenshots
+
+### Temas
+
+#### Tema Escuro 🌙
+
+<img src="" alt="Imagem do tema escuro">
+
+#### Tema Claro 🔆
+
+<img src="" alt="Imagem do tema claro">
+
+### Historico 📊
+
+<img src="" alt="Imagem do histórico">
+
+## 📜 Licença
+
+Este projeto está sob a licença MIT. Sinta-se livre para usar, modificar e
+compartilhar.
