@@ -3,7 +3,6 @@ import { DefaultInput } from '../DefaultInput';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
 import { PlayCircleIcon } from 'lucide-react';
-
 export function DefaultForm() {
   return (
     <form action='' className={styles.form}>
@@ -16,7 +15,7 @@ export function DefaultForm() {
         />
       </div>
       <div className={styles.formControl}>
-        <p>Lorem ipsum dolor sit amet.</p>
+        <p>O próximo intervalo é de 25 min</p>
       </div>
       <div className={styles.formControl}>
         <Cycles />
