@@ -3,19 +3,29 @@ import { DefaultInput } from '../DefaultInput';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
 import { PlayCircleIcon } from 'lucide-react';
+import { useState } from 'react';
+
 export function DefaultForm() {
+  const [taskName, setTaskName] = useState('');
+
+  function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+  }
+
   return (
-    <form action='' className={styles.form}>
+    <form onSubmit={handleCreateNewTask} className={styles.form}>
       <div className={styles.formControl}>
         <DefaultInput
           type='text'
           id='meuInput'
-          labelText='Task:'
+          labelText='Tarefa:'
           placeholder='O que deseja fazer?'
+          value={taskName}
+          onChange={e => setTaskName(e.target.value)}
         />
       </div>
       <div className={styles.formControl}>
-        <p>O próximo intervalo é de 25 min</p>
+        <p>Sem tarefas por enquanto.</p>
       </div>
       <div className={styles.formControl}>
         <Cycles />

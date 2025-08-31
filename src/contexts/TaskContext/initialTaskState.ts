@@ -1,10 +1,9 @@
-import { createContext } from 'react';
 import type { TaskStateModel } from '../../models/TaskStateModel';
 
-const initialState: TaskStateModel = {
+export const initialTaskState: TaskStateModel = {
   tasks: [],
   secondsRemaining: 0,
-  formattedSecondsRemaining: '00:00',
+  formattedSecondsRemaining: '20:00',
   activeTask: null,
   currentCycle: 0,
   config: {
@@ -13,7 +12,3 @@ const initialState: TaskStateModel = {
     longBreakTime: 15,
   },
 };
-
-// type TaskContextProps = {};
-
-export const TaskContext = createContext(initialState);
