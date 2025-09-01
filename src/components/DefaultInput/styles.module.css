@@ -25,3 +25,8 @@
   border-bottom: 0.2 solid var(--disabled);
   color: var(--text-muted);
 }
+
+input,
+textarea {
+  color: var(--text-default);
+}
