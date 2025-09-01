@@ -2,12 +2,13 @@ import styles from './styles.module.css';
 import { DefaultInput } from '../DefaultInput';
 import { Cycles } from '../Cycles';
 import { DefaultButton } from '../DefaultButton';
-import { PlayCircleIcon } from 'lucide-react';
+import { PlayCircleIcon, StopCircleIcon } from 'lucide-react';
 import { useRef } from 'react';
 import type { TaskModel } from '../../models/TaskModel';
 import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
+import { formatSecondsToMinutes } from '../../utils/formatSecondsToMinutes';
 
 export function DefaultForm() {
   const { state, setState } = useTaskContext();
@@ -34,7 +35,7 @@ export function DefaultForm() {
       startDate: Date.now(),
       completeDate: null,
       interruptDate: null,
-      durationInMinutes: 1,
+      durationInMinutes: state.config[nextCycleType],
       type: nextCycleType,
     };
 
@@ -47,8 +48,21 @@ export function DefaultForm() {
         activeTask: newTask,
         currentCycle: nextCycle,
         secondsRemainingVariable,
-        formattedSecondsRemaining: '00:00', // Conferir depois.
+        formattedSecondsRemaining: formatSecondsToMinutes(
+          secondsRemainingVariable,
+        ),
         tasks: [...prevState.tasks, newTask],
+      };
+    });
+  }
+
+  function handleInterruptTask() {
+    setState(prevState => {
+      return {
+        ...prevState,
+        activeTask: null,
+        secondsRemainingVariable: 0,
+        formattedSecondsRemaining: '00:00',
       };
     });
   }
@@ -63,16 +77,36 @@ export function DefaultForm() {
           labelText='Tarefa:'
           placeholder='O que deseja fazer?'
           ref={taskNameInput}
+          disabled={!!state.activeTask}
         />
       </div>
       <div className={styles.formControl}>
         <p>Sem tarefas por enquanto.</p>
       </div>
+      {state.currentCycle > 0 && (
+        <div className={styles.formControl}>
+          <Cycles />
+        </div>
+      )}
+
       <div className={styles.formControl}>
-        <Cycles />
-      </div>
-      <div className={styles.formControl}>
-        <DefaultButton icon={<PlayCircleIcon />} />
+        {!state.activeTask ? (
+          <DefaultButton
+            icon={<PlayCircleIcon />}
+            type='submit'
+            aria-label='Iniciar nova tarefa'
+            title='Iniciar nova tarefa'
+          />
+        ) : (
+          <DefaultButton
+            icon={<StopCircleIcon />}
+            type='button'
+            aria-label='Interromper tarefa atual'
+            title='Interromper tarefa atual'
+            color='red'
+            onClick={handleInterruptTask}
+          />
+        )}
       </div>
     </form>
   );
