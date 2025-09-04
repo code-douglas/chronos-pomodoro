@@ -41,10 +41,6 @@ export function DefaultForm() {
     };
 
     dispatch({ type: TaskActionsTypes.START_TASK, payload: newTask });
-    const worker = new Worker(
-      new URL('../../workers/timerWorker.js', import.meta.url),
-    );
-    worker.postMessage('Olá, Mundo!');
   }
 
   function handleInterruptTask(
@@ -61,7 +57,7 @@ export function DefaultForm() {
         <DefaultInput
           type='text'
           id='meuInput'
-          labelText='Tarefa:'
+          labelText='Tarefa'
           placeholder='O que deseja fazer?'
           ref={taskNameInput}
           disabled={!!state.activeTask}
