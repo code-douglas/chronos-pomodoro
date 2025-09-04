@@ -9,6 +9,7 @@ import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 import { getNextCycle } from '../../utils/getNextCycle';
 import { getNextCycleType } from '../../utils/getNextCycleType';
 import { TaskActionsTypes } from '../../contexts/TaskContext/taskActions';
+import { Tips } from '../Tips';
 
 export function DefaultForm() {
   const { state, dispatch } = useTaskContext();
@@ -62,9 +63,11 @@ export function DefaultForm() {
           disabled={!!state.activeTask}
         />
       </div>
+
       <div className={styles.formControl}>
-        <p>Sem tarefas por enquanto.</p>
+        <Tips />
       </div>
+
       {state.currentCycle > 0 && (
         <div className={styles.formControl}>
           <Cycles />
