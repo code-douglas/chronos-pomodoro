@@ -41,7 +41,7 @@ export function Menu() {
   return (
     <nav className={styles.menu}>
       <a
-        href='#'
+        href='/'
         className={styles.menuLink}
         aria-label='Ir para a Home'
         title='Ir para a home'
