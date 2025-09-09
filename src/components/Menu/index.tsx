@@ -7,7 +7,7 @@ import {
 } from 'lucide-react';
 import styles from './styles.module.css';
 import { useState, useEffect } from 'react';
-import { Link } from 'react-router';
+import { RouterLink } from '../RouterLink';
 
 type availableThemes = 'dark' | 'light';
 
@@ -41,39 +41,39 @@ export function Menu() {
 
   return (
     <nav className={styles.menu}>
-      <Link
-        to='/'
+      <RouterLink
+        href='/'
         className={styles.menuLink}
         aria-label='Ir para a Home'
         title='Ir para a home'
       >
         <HouseIcon />
-      </Link>
-      <Link
-        to='#'
+      </RouterLink>
+      <RouterLink
+        href='#'
         className={styles.menuLink}
         aria-label='Ir para o historico'
         title='Ver historico'
       >
         <HistoryIcon />
-      </Link>
-      <Link
-        to='#'
+      </RouterLink>
+      <RouterLink
+        href='#'
         className={styles.menuLink}
         aria-label='Ir para as configurações'
         title='Ir para configurações do app'
       >
         <SettingsIcon />
-      </Link>
-      <Link
-        to='#'
+      </RouterLink>
+      <RouterLink
+        href='#'
         className={styles.menuLink}
         aria-label='Mudar tema'
         title='Mudar tema'
         onClick={HandleThemeChange}
       >
         {nextThemeIcon[theme]}
-      </Link>
+      </RouterLink>
     </nav>
   );
 }
