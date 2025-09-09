@@ -18,6 +18,7 @@ export function DefaultForm() {
 
   const nextCycle = getNextCycle(state.currentCycle);
   const nextCycleType = getNextCycleType(nextCycle);
+  const lastTaskName = state.tasks[state.tasks.length - 1]?.name || '';
 
   function handleCreateNewTask(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -60,10 +61,11 @@ export function DefaultForm() {
         <DefaultInput
           type='text'
           id='meuInput'
-          labelText='Tarefa'
+          labelText={`Tarefa: ${lastTaskName}`}
           placeholder='O que deseja fazer?'
           ref={taskNameInput}
           disabled={!!state.activeTask}
+          defaultValue={lastTaskName}
         />
       </div>
 

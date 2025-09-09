@@ -65,7 +65,7 @@ export function Menu() {
       >
         <SettingsIcon />
       </RouterLink>
-      <RouterLink
+      <a
         href='#'
         className={styles.menuLink}
         aria-label='Mudar tema'
@@ -73,7 +73,7 @@ export function Menu() {
         onClick={HandleThemeChange}
       >
         {nextThemeIcon[theme]}
-      </RouterLink>
+      </a>
     </nav>
   );
 }
