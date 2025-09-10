@@ -3,9 +3,11 @@ import { Container } from '../../components/Container';
 import { DefaultButton } from '../../components/DefaultButton';
 import { Heading } from '../../components/Heading';
 import { MainTemplate } from '../../templates/MainTemplate';
+import { formatDate } from '../../utils/formatDate';
+import { getTaskStatus } from '../../utils/getTaskStatus';
+import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 
 import styles from './styles.module.css';
-import { useTaskContext } from '../../contexts/TaskContext/useTaskContext';
 
 export function History() {
   const { state } = useTaskContext();
@@ -40,13 +42,19 @@ export function History() {
             </thead>
             <tbody>
               {state.tasks.map(task => {
+                const taskTypeDictionary = {
+                  workTime: 'Foco',
+                  shortBreakTime: 'Descanso curto',
+                  longBreakTime: 'Descanso longo',
+                };
+
                 return (
                   <tr key={task.id}>
                     <td>{task.name}</td>
                     <td>{task.durationInMinutes} min</td>
-                    <td>{new Date(task.startDate).toISOString()}</td>
-                    <td>Completa</td>
-                    <td>{task.type}</td>
+                    <td>{formatDate(task.startDate)}</td>
+                    <td>{getTaskStatus(task, state.activeTask)}</td>
+                    <td>{taskTypeDictionary[task.type]}</td>
                   </tr>
                 );
               })}
