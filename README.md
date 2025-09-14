@@ -10,7 +10,7 @@
 - ✅ **Histórico de pomodoros** realizados
 - ✅ **Contabilização de ciclos** (quantidade de sessões concluídas)
 - ✅ **Tema claro/escuro** com alternância rápida
-- ✅ Controles de **Iniciar / Pausar / Resetar**
+- ✅ Controles de **Iniciar / Pausar / Resetar Historico**
 - ✅ Interface responsiva e minimalista
 - ✅ Desenvolvido com **React Hooks** e **TypeScript**
 

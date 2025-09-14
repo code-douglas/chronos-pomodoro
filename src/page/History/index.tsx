@@ -17,6 +17,10 @@ export function History() {
   const [confirmClearHistory, setConfirmClearHistory] = useState(false);
   const hasTasks = state.tasks.length > 0;
 
+  useEffect(() => {
+    document.title = 'Historico';
+  }, []);
+
   const [sortTaskOptions, setSortTaskOptions] = useState<SortTasksOptions>(
     () => {
       return {
