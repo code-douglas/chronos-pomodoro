@@ -76,15 +76,15 @@ npm run build
 
 #### Tema Escuro 🌙
 
-<img src="" alt="Imagem do tema escuro">
+<img src="./public/images/screenshots/Screenshot_2.png" alt="Imagem do tema escuro">
 
 #### Tema Claro 🔆
 
-<img src="" alt="Imagem do tema claro">
+<img src="./public/images/screenshots/Screenshot_3.png" alt="Imagem do tema claro">
 
 ### Historico 📊
 
-<img src="" alt="Imagem do histórico">
+<img src="./public/images/screenshots/Screenshot_4.png" alt="Imagem do histórico">
 
 ## 📜 Licença
 
